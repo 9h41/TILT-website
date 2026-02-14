@@ -35,8 +35,13 @@
     document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
       el.setAttribute("alt", t(locale, el.dataset.i18nAlt));
     });
-    document.querySelectorAll("[data-appstore-badge]").forEach((img) => {
-      img.setAttribute("src", `assets/badges/appstore-${locale}.svg`);
+    document.querySelectorAll("[data-screenshot-file]").forEach((img) => {
+      const filename = img.dataset.screenshotFile;
+      img.setAttribute("src", `assets/screenshots/${locale}/${filename}`);
+      img.onerror = function () {
+        this.onerror = null;
+        this.setAttribute("src", `assets/screenshots/en/${filename}`);
+      };
     });
 
     const bodyTitleKey = document.body.dataset.i18nTitle;

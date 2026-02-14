@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TILT | Kid Location Alerts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-title="meta.siteTitle">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" data-localized-link>
+        <img src="assets/icon.svg" alt="TILT icon">
+        <span>TILT</span>
+      </a>
+      <div class="nav-row">
+        <a class="nav-link active" href="index.html" data-localized-link data-i18n="nav.home"></a>
+        <a class="nav-link" href="privacy.html" data-localized-link data-i18n="nav.privacy"></a>
+        <a class="nav-link" href="terms.html" data-localized-link data-i18n="nav.terms"></a>
+        <select id="lang-switcher" class="lang" aria-label="Language"></select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-card">
+        <div>
+          <h1 data-i18n="home.heroTitle"></h1>
+          <p data-i18n="home.heroSubtitle"></p>
+          <a class="cta" href="https://apps.apple.com/app/id6759187461" target="_blank" rel="noopener noreferrer" data-i18n="home.cta"></a>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/icon.svg" alt="TILT app icon">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="home.featuresTitle"></h2>
+        <div class="grid">
+          <article class="card"><h3 data-i18n="home.f1t"></h3><p data-i18n="home.f1d"></p></article>
+          <article class="card"><h3 data-i18n="home.f2t"></h3><p data-i18n="home.f2d"></p></article>
+          <article class="card"><h3 data-i18n="home.f3t"></h3><p data-i18n="home.f3d"></p></article>
+          <article class="card"><h3 data-i18n="home.f4t"></h3><p data-i18n="home.f4d"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card">
+        <h2 data-i18n="home.howTitle"></h2>
+        <ol class="steps">
+          <li data-i18n="home.s1"></li>
+          <li data-i18n="home.s2"></li>
+          <li data-i18n="home.s3"></li>
+          <li data-i18n="home.s4"></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="home.galleryTitle"></h2>
+        <div class="gallery">
+          <img src="assets/screenshots/01_track_family_places_live.png" alt="TILT screenshot 1">
+          <img src="assets/screenshots/02_view_entry_exit_timeline.png" alt="TILT screenshot 2">
+          <img src="assets/screenshots/03_manage_kids_in_one_place.png" alt="TILT screenshot 3">
+          <img src="assets/screenshots/06_pair_securely_with_qr.png" alt="TILT screenshot 4">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div data-i18n="footer.tag"></div>
+      <div class="footer-links">
+        <a href="privacy.html" data-localized-link data-i18n="nav.privacy"></a>
+        <a href="terms.html" data-localized-link data-i18n="nav.terms"></a>
+        <a href="mailto:contact@9h41.org" data-i18n="legal.contact"></a>
+      </div>
+      <div class="meta" data-i18n="footer.copy"></div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

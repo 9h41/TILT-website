@@ -32,6 +32,12 @@
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       el.textContent = t(locale, el.dataset.i18n);
     });
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      el.setAttribute("alt", t(locale, el.dataset.i18nAlt));
+    });
+    document.querySelectorAll("[data-appstore-badge]").forEach((img) => {
+      img.setAttribute("src", `assets/badges/appstore-${locale}.svg`);
+    });
 
     const bodyTitleKey = document.body.dataset.i18nTitle;
     if (bodyTitleKey) document.title = t(locale, bodyTitleKey);

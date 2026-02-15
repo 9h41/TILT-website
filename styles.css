@@ -295,6 +295,32 @@ a {
   align-items: stretch;
 }
 
+.premium-compare .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plan-diff {
+  border-width: 2px;
+  border-color: #c4dafd;
+}
+
+.plan-diff h2 {
+  margin-top: 0;
+}
+
+.plan-diff .steps li {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.plan-diff--premium {
+  background:
+    radial-gradient(130% 100% at 100% 0%, rgba(255, 238, 165, 0.26), transparent),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.98), rgba(233, 245, 255, 0.95));
+  border-color: #78b5ff;
+  box-shadow: 0 18px 34px rgba(12, 63, 137, 0.16);
+}
+
 .plan-card {
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(6px);
@@ -311,29 +337,6 @@ a {
 
 .plan-note {
   margin-bottom: 0.9rem;
-}
-
-.plan-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.55rem;
-}
-
-.plan-list li {
-  color: var(--ink);
-  font-weight: 600;
-  position: relative;
-  padding-left: 1.4rem;
-}
-
-.plan-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #0a9ed8;
-  font-weight: 800;
 }
 
 .plan-card--featured {
@@ -353,6 +356,10 @@ a {
 }
 
 @media (max-width: 980px) {
+  .premium-compare .grid {
+    grid-template-columns: 1fr;
+  }
+
   .premium-pricing .pricing-cards {
     grid-template-columns: 1fr;
   }

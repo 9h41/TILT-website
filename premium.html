@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TILT | Premium Plans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-title="premium.metaTitle">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" data-localized-link>
+        <img src="assets/icon.svg" alt="TILT icon">
+        <span>TILT</span>
+      </a>
+      <div class="nav-row">
+        <a class="nav-link" href="index.html" data-localized-link data-i18n="nav.home"></a>
+        <a class="nav-link active" href="premium.html" data-localized-link data-i18n="nav.premium"></a>
+        <a class="nav-link" href="privacy.html" data-localized-link data-i18n="nav.privacy"></a>
+        <a class="nav-link" href="terms.html" data-localized-link data-i18n="nav.terms"></a>
+        <select id="lang-switcher" class="lang" aria-label="Language"></select>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-wrap container premium-page">
+    <article class="card premium-head">
+      <h1 data-i18n="premium.title"></h1>
+      <p class="meta" data-i18n="premium.subtitle"></p>
+      <p data-i18n="premium.unlock"></p>
+    </article>
+
+    <section class="section premium-pricing" style="padding-bottom: 1.2rem;">
+      <div class="pricing-cards">
+        <article class="card plan-card">
+          <h2 class="plan-title" data-i18n="premium.plan.monthly.title"></h2>
+          <p class="plan-price" data-i18n="premium.plan.monthly.price"></p>
+          <p class="meta plan-note" data-i18n="premium.plan.monthly.note"></p>
+          <ul class="plan-list">
+            <li data-i18n="premium.paid.kids"></li>
+            <li data-i18n="premium.paid.places"></li>
+            <li data-i18n="premium.paid.history"></li>
+          </ul>
+        </article>
+        <article class="card plan-card plan-card--featured">
+          <h2 class="plan-title" data-i18n="premium.plan.annual.title"></h2>
+          <p class="plan-price" data-i18n="premium.plan.annual.price"></p>
+          <p class="meta plan-note" data-i18n="premium.plan.annual.note"></p>
+          <ul class="plan-list">
+            <li data-i18n="premium.paid.kids"></li>
+            <li data-i18n="premium.paid.places"></li>
+            <li data-i18n="premium.paid.history"></li>
+          </ul>
+        </article>
+        <article class="card plan-card">
+          <h2 class="plan-title" data-i18n="premium.plan.lifetime.title"></h2>
+          <p class="plan-price" data-i18n="premium.plan.lifetime.price"></p>
+          <p class="meta plan-note" data-i18n="premium.plan.lifetime.note"></p>
+          <ul class="plan-list">
+            <li data-i18n="premium.paid.kids"></li>
+            <li data-i18n="premium.paid.places"></li>
+            <li data-i18n="premium.paid.history"></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom: 1.2rem;">
+      <div class="grid">
+        <article class="card">
+          <h2 data-i18n="premium.free.title"></h2>
+          <ul class="steps">
+            <li data-i18n="premium.free.kids"></li>
+            <li data-i18n="premium.free.places"></li>
+            <li data-i18n="premium.free.history"></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 data-i18n="premium.paid.title"></h2>
+          <ul class="steps">
+            <li data-i18n="premium.paid.kids"></li>
+            <li data-i18n="premium.paid.places"></li>
+            <li data-i18n="premium.paid.history"></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <article class="card">
+      <h2 data-i18n="premium.featuresTitle"></h2>
+      <ul class="steps">
+        <li data-i18n="premium.f1"></li>
+        <li data-i18n="premium.f2"></li>
+        <li data-i18n="premium.f3"></li>
+        <li data-i18n="premium.f4"></li>
+      </ul>
+      <p class="meta" data-i18n="premium.disclaimer"></p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html" data-localized-link data-i18n="nav.home"></a>
+        <a href="premium.html" data-localized-link data-i18n="nav.premium"></a>
+        <a href="privacy.html" data-localized-link data-i18n="nav.privacy"></a>
+        <a href="terms.html" data-localized-link data-i18n="nav.terms"></a>
+        <a href="https://9h41.org" target="_blank" rel="noopener noreferrer">9h41.org</a>
+      </div>
+      <div class="meta" data-i18n="footer.copy"></div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

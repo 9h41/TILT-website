@@ -35,6 +35,9 @@
     document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
       el.setAttribute("alt", t(locale, el.dataset.i18nAlt));
     });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+      el.setAttribute("aria-label", t(locale, el.dataset.i18nAriaLabel));
+    });
     document.querySelectorAll("[data-appstore-badge]").forEach((img) => {
       img.setAttribute("src", `assets/badges/appstore-${locale}.svg`);
       img.onerror = function () {

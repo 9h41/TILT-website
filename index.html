@@ -32,15 +32,31 @@
         <div>
           <h1 data-i18n="home.heroTitle"></h1>
           <p data-i18n="home.heroSubtitle"></p>
-          <a class="cta cta-badge" href="https://apps.apple.com/app/id6759187461" target="_blank" rel="noopener noreferrer">
-            <img
-              id="appstore-badge"
-              data-appstore-badge
-              src="assets/badges/appstore-en.svg"
-              alt="Download on the App Store"
-              data-i18n-alt="home.ctaAlt"
+          <div class="store-badges">
+            <a class="cta cta-badge" href="https://apps.apple.com/app/id6759187461" target="_blank" rel="noopener noreferrer">
+              <img
+                id="appstore-badge"
+                data-appstore-badge
+                src="assets/badges/appstore-en.svg"
+                alt="Download on the App Store"
+                data-i18n-alt="home.ctaAlt"
+              >
+            </a>
+            <a
+              class="playstore-badge"
+              href="https://play.google.com/store/apps/details?id=org.nineh41.android.wmka"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get it on Google Play"
+              data-i18n-aria-label="home.playCtaAlt"
             >
-          </a>
+              <span class="playstore-mark" aria-hidden="true"></span>
+              <span class="playstore-copy">
+                <span data-i18n="home.playCtaSmall"></span>
+                <strong data-i18n="home.playCtaMain"></strong>
+              </span>
+            </a>
+          </div>
         </div>
         <div class="hero-visual">
           <img src="assets/icon.svg" alt="TILT app icon">

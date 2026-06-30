@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TILT | Kid Location Alerts</title>
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +14,8 @@
 <body data-i18n-title="meta.siteTitle">
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="/" data-localized-link>
-        <img src="assets/icon.svg" alt="TILT icon">
+      <a class="brand" href="index.html" data-localized-link>
+        <img src="assets/icon.png" alt="TILT icon">
         <span>TILT</span>
       </a>
       <div class="nav-row">
@@ -27,12 +29,35 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-card">
-        <div>
-          <h1 data-i18n="home.heroTitle"></h1>
-          <p data-i18n="home.heroSubtitle"></p>
-          <div class="store-badges">
+    <section class="home-page-shell">
+      <div class="container home-shell">
+        <section id="download" class="home-hero">
+        <div class="hero-copy">
+          <h1>
+            <span data-i18n="home.heroLeadPrimary"></span>
+            <span data-i18n="home.heroLeadSecondary"></span>
+          </h1>
+          <div class="hero-rule" aria-hidden="true"></div>
+          <p data-i18n="home.messageBody"></p>
+          <p class="hero-emphasis" data-i18n="home.heroEmphasis"></p>
+        </div>
+        <div class="hero-device">
+          <div class="hero-phone hero-phone--framed" aria-hidden="true">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="status-row">9:41</div>
+                <div class="avatar"></div>
+                <div class="checkmark">✓</div>
+                <strong data-i18n="home.arrivalName"></strong>
+                <p data-i18n="home.arrivalSentence"></p>
+                <span data-i18n="home.arrivalStatus"></span>
+                <div class="phone-mountains"></div>
+                <div class="phone-pin"></div>
+              </div>
+            </div>
+          </div>
+          <div class="store-badges hero-badges">
             <a class="cta cta-badge" href="https://apps.apple.com/app/id6759187461" target="_blank" rel="noopener noreferrer">
               <img
                 id="appstore-badge"
@@ -58,45 +83,45 @@
             </a>
           </div>
         </div>
-        <div class="hero-visual">
-          <img src="assets/icon.svg" alt="TILT app icon">
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 data-i18n="home.featuresTitle"></h2>
-        <div class="grid">
-          <article class="card"><h3 data-i18n="home.f1t"></h3><p data-i18n="home.f1d"></p></article>
-          <article class="card"><h3 data-i18n="home.f2t"></h3><p data-i18n="home.f2d"></p></article>
-          <article class="card"><h3 data-i18n="home.f3t"></h3><p data-i18n="home.f3d"></p></article>
-          <article class="card"><h3 data-i18n="home.f4t"></h3><p data-i18n="home.f4d"></p></article>
-        </div>
-      </div>
-    </section>
+        <section id="why" class="home-compare">
+        <h2 data-i18n="home.compareTitle"></h2>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th data-i18n="home.compareBenefits"></th>
+              <th data-i18n="home.compareOther"></th>
+              <th>TILT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="home.compareCrossPlatform"></td><td class="no">×</td><td class="yes">✓</td></tr>
+            <tr><td data-i18n="home.compareNoTracking"></td><td class="no">×</td><td class="yes">✓</td></tr>
+            <tr><td data-i18n="home.comparePlaces"></td><td class="no">×</td><td class="yes">✓</td></tr>
+            <tr><td data-i18n="home.compareAutonomy"></td><td class="no">×</td><td class="yes">✓</td></tr>
+          </tbody>
+        </table>
+        </section>
 
-    <section class="section">
-      <div class="container card">
-        <h2 data-i18n="home.howTitle"></h2>
-        <ol class="steps">
-          <li data-i18n="home.s1"></li>
-          <li data-i18n="home.s2"></li>
-          <li data-i18n="home.s3"></li>
-          <li data-i18n="home.s4"></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 data-i18n="home.galleryTitle"></h2>
-        <div class="gallery">
-          <img data-screenshot-file="01_track_family_places_live.png" src="assets/screenshots/en/01_track_family_places_live.png" alt="TILT screenshot 1">
-          <img data-screenshot-file="02_view_entry_exit_timeline.png" src="assets/screenshots/en/02_view_entry_exit_timeline.png" alt="TILT screenshot 2">
-          <img data-screenshot-file="03_manage_kids_in_one_place.png" src="assets/screenshots/en/03_manage_kids_in_one_place.png" alt="TILT screenshot 3">
-          <img data-screenshot-file="06_pair_securely_with_qr.png" src="assets/screenshots/en/06_pair_securely_with_qr.png" alt="TILT screenshot 4">
-        </div>
+        <section id="features" class="home-pillars">
+          <article>
+            <span class="feature-icon shield-icon" aria-hidden="true"></span>
+            <h3 data-i18n="home.pillarPrivacy"></h3>
+            <p data-i18n="home.pillarPrivacyBody"></p>
+          </article>
+          <article>
+            <span class="feature-icon family-icon" aria-hidden="true"></span>
+            <h3 data-i18n="home.pillarFamily"></h3>
+            <p data-i18n="home.pillarFamilyBody"></p>
+          </article>
+          <article>
+            <span class="feature-icon compass-icon" aria-hidden="true"></span>
+            <h3 data-i18n="home.pillarAutonomy"></h3>
+            <p data-i18n="home.pillarAutonomyBody"></p>
+          </article>
+        </section>
+        <div class="home-landscape" aria-hidden="true"></div>
       </div>
     </section>
   </main>

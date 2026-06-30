@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TILT | Premium Plans</title>
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +15,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html" data-localized-link>
-        <img src="assets/icon.svg" alt="TILT icon">
+        <img src="assets/icon.png" alt="TILT icon">
         <span>TILT</span>
       </a>
       <div class="nav-row">
@@ -26,74 +28,85 @@
     </div>
   </header>
 
-  <main class="legal-wrap container premium-page">
-    <article class="card premium-head">
-      <h1 data-i18n="premium.title"></h1>
-      <p class="meta" data-i18n="premium.subtitle"></p>
-      <p data-i18n="premium.unlock"></p>
-    </article>
+  <main class="premium-page">
+    <section class="premium-plans">
+      <div class="container premium-scene">
+        <div class="premium-copy">
+          <h1 data-i18n="premium.heroTitle"></h1>
+          <p data-i18n="premium.heroSubtitle"></p>
+        </div>
 
-    <section class="section premium-compare" style="padding-bottom: 1.2rem;">
-      <div class="grid">
-        <article class="card plan-diff">
-          <h2 data-i18n="premium.free.title"></h2>
-          <ul class="steps">
-            <li data-i18n="premium.free.kids"></li>
-            <li data-i18n="premium.free.places"></li>
-            <li data-i18n="premium.free.history"></li>
-          </ul>
-        </article>
-        <article class="card plan-diff plan-diff--premium">
-          <h2 data-i18n="premium.paid.title"></h2>
-          <ul class="steps">
-            <li data-i18n="premium.paid.kids"></li>
-            <li data-i18n="premium.paid.places"></li>
-            <li data-i18n="premium.paid.history"></li>
-          </ul>
-        </article>
+        <div class="plans-stage">
+          <article class="price-panel price-panel--monthly">
+            <h2 data-i18n="premium.plan.monthly.title"></h2>
+            <p class="plan-kicker" data-i18n="premium.plan.monthly.kicker"></p>
+            <p class="price-line"><strong data-i18n="premium.plan.monthly.amount"></strong><span>€</span></p>
+            <p class="price-note" data-i18n="premium.plan.monthly.note"></p>
+            <ul class="plan-list">
+              <li data-i18n="premium.feature.children"></li>
+              <li data-i18n="premium.feature.places"></li>
+              <li data-i18n="premium.feature.notifications"></li>
+              <li data-i18n="premium.plan.monthly.noCommitment"></li>
+            </ul>
+          </article>
+
+          <article class="price-panel price-panel--yearly price-panel--featured">
+            <div class="chosen-badge" data-i18n="premium.plan.annual.badge"></div>
+            <h2 data-i18n="premium.plan.annual.title"></h2>
+            <p class="plan-kicker" data-i18n="premium.plan.annual.kicker"></p>
+            <p class="price-line"><strong data-i18n="premium.plan.annual.amount"></strong><span>€</span></p>
+            <p class="price-note" data-i18n="premium.plan.annual.note"></p>
+            <ul class="plan-list">
+              <li data-i18n="premium.feature.children"></li>
+              <li data-i18n="premium.feature.places"></li>
+              <li data-i18n="premium.feature.notifications"></li>
+            </ul>
+          </article>
+
+          <article class="price-panel price-panel--lifetime">
+            <h2 data-i18n="premium.plan.lifetime.title"></h2>
+            <p class="plan-kicker" data-i18n="premium.plan.lifetime.kicker"></p>
+            <p class="price-line"><strong data-i18n="premium.plan.lifetime.amount"></strong><span>€</span></p>
+            <p class="price-note" data-i18n="premium.plan.lifetime.note"></p>
+            <ul class="plan-list">
+              <li data-i18n="premium.feature.children"></li>
+              <li data-i18n="premium.feature.places"></li>
+              <li data-i18n="premium.feature.notifications"></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="privacy-row">
+          <span data-i18n="premium.noGps"></span>
+          <span data-i18n="premium.noTracking"></span>
+          <span data-i18n="premium.noSurveillance"></span>
+        </div>
+
+        <div class="premium-mountains premium-mountains-back" aria-hidden="true"></div>
+        <div class="premium-mountains premium-mountains-mid" aria-hidden="true"></div>
+        <div class="premium-mountains premium-mountains-front" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section class="section premium-pricing" style="padding-bottom: 1.2rem;">
-      <div class="pricing-cards">
-        <article class="card plan-card">
-          <h2 class="plan-title" data-i18n="premium.plan.monthly.title"></h2>
-          <p class="plan-price" data-i18n="premium.plan.monthly.price"></p>
-          <p class="meta plan-note" data-i18n="premium.plan.monthly.note"></p>
-        </article>
-        <article class="card plan-card plan-card--featured">
-          <h2 class="plan-title" data-i18n="premium.plan.annual.title"></h2>
-          <p class="plan-price" data-i18n="premium.plan.annual.price"></p>
-          <p class="meta plan-note" data-i18n="premium.plan.annual.note"></p>
-        </article>
-        <article class="card plan-card">
-          <h2 class="plan-title" data-i18n="premium.plan.lifetime.title"></h2>
-          <p class="plan-price" data-i18n="premium.plan.lifetime.price"></p>
-          <p class="meta plan-note" data-i18n="premium.plan.lifetime.note"></p>
-        </article>
-      </div>
+    <section class="container premium-note">
+      <article class="card">
+        <h2 data-i18n="premium.featuresTitle"></h2>
+        <p data-i18n="premium.unlock"></p>
+        <p class="meta" data-i18n="premium.disclaimer"></p>
+      </article>
     </section>
-
-    <article class="card">
-      <h2 data-i18n="premium.featuresTitle"></h2>
-      <ul class="steps">
-        <li data-i18n="premium.f1"></li>
-        <li data-i18n="premium.f2"></li>
-        <li data-i18n="premium.f3"></li>
-        <li data-i18n="premium.f4"></li>
-      </ul>
-      <p class="meta" data-i18n="premium.disclaimer"></p>
-    </article>
   </main>
 
   <footer class="footer">
     <div class="container">
+      <div data-i18n="footer.tag"></div>
       <div class="footer-links">
         <a href="index.html" data-localized-link data-i18n="nav.home"></a>
         <a href="premium.html" data-localized-link data-i18n="nav.premium"></a>
         <a href="privacy.html" data-localized-link data-i18n="nav.privacy"></a>
         <a href="terms.html" data-localized-link data-i18n="nav.terms"></a>
         <a href="https://9h41.org" target="_blank" rel="noopener noreferrer">9h41.org</a>
+        <a href="mailto:contact@9h41.org" data-i18n="legal.contact"></a>
       </div>
       <div class="meta" data-i18n="footer.copy"></div>
     </div>

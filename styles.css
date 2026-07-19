@@ -1233,9 +1233,18 @@ a {
 
 .price-note {
   min-height: 1.45rem;
-  margin: -0.35rem 0 1.15rem;
+  margin: 0.2rem 0 1.15rem;
   color: #5c7482;
   font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.normal-price {
+  min-height: 1.25rem;
+  margin: 0.35rem 0 0;
+  color: #778c96;
+  font-size: 0.95rem;
   font-weight: 700;
   text-align: center;
 }

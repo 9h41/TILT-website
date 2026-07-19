@@ -76,7 +76,7 @@ window.TILT_I18N = {
       "legal.contact": "Contact",
 
       "privacy.title": "Privacy Policy",
-      "privacy.last": "Last updated: February 14, 2026",
+      "privacy.last": "Last updated: July 19, 2026",
       "privacy.intro": "This Privacy Policy describes what data TILT processes, why it is processed, and the controls available to you when you use the app and this website.",
       "privacy.s1t": "What we collect",
       "privacy.s1d": "Depending on your usage, TILT may process: device identifiers, parent/kid pairing information, configured places and notification settings, geofence event records (for example enter/leave events), and push subscription identifiers required for notification delivery.",
@@ -239,7 +239,7 @@ window.TILT_I18N = {
       "legal.contact": "Kontakt",
 
       "privacy.title": "Datenschutzerklärung",
-      "privacy.last": "Zuletzt aktualisiert: 14. Februar 2026",
+      "privacy.last": "Zuletzt aktualisiert: 19. Juli 2026",
       "privacy.intro": "Diese Erklärung beschreibt, wie TILT Informationen in App und Website verarbeitet.",
       "privacy.s1t": "Welche Daten wir verarbeiten",
       "privacy.s1d": "TILT verarbeitet Gerätekennungen, Geräteverknüpfungen, Orts-Einstellungen, Geofence-Verlauf und Push-IDs zur Bereitstellung von Warnungen.",
@@ -402,7 +402,7 @@ window.TILT_I18N = {
       "legal.contact": "Contacto",
 
       "privacy.title": "Política de privacidad",
-      "privacy.last": "Última actualización: 14 de febrero de 2026",
+      "privacy.last": "Última actualización: 19 de julio de 2026",
       "privacy.intro": "Esta política explica cómo TILT trata la información en la app y en este sitio web.",
       "privacy.s1t": "Qué recopilamos",
       "privacy.s1d": "TILT puede procesar identificadores de dispositivo, vínculos entre dispositivos, ajustes de lugares, historial de geocercas e identificadores de suscripción para avisos.",
@@ -565,7 +565,7 @@ window.TILT_I18N = {
       "legal.contact": "Contact",
 
       "privacy.title": "Politique de confidentialité",
-      "privacy.last": "Dernière mise à jour: 14 février 2026",
+      "privacy.last": "Dernière mise à jour : 19 juillet 2026",
       "privacy.intro": "Cette politique explique le traitement des informations par TILT dans l'app et sur ce site.",
       "privacy.s1t": "Données collectées",
       "privacy.s1d": "TILT peut traiter des identifiants d'appareil, liens de jumelage, réglages de lieux, historique géofence et identifiants de notification.",
@@ -728,7 +728,7 @@ window.TILT_I18N = {
       "legal.contact": "Contatto",
 
       "privacy.title": "Informativa sulla privacy",
-      "privacy.last": "Ultimo aggiornamento: 14 febbraio 2026",
+      "privacy.last": "Ultimo aggiornamento: 19 luglio 2026",
       "privacy.intro": "Questa informativa spiega come TILT tratta i dati nell'app e su questo sito.",
       "privacy.s1t": "Dati raccolti",
       "privacy.s1d": "TILT può trattare identificatori dispositivo, collegamenti tra dispositivi, impostazioni luoghi, cronologia geofence e ID notifiche.",
@@ -891,7 +891,7 @@ window.TILT_I18N = {
       "legal.contact": "Contact",
 
       "privacy.title": "Privacybeleid",
-      "privacy.last": "Laatst bijgewerkt: 14 februari 2026",
+      "privacy.last": "Laatst bijgewerkt: 19 juli 2026",
       "privacy.intro": "Dit beleid legt uit hoe TILT informatie verwerkt in de app en op deze website.",
       "privacy.s1t": "Welke data we verwerken",
       "privacy.s1d": "TILT kan apparaat-ID's, koppelingen, plek-instellingen, geofencegeschiedenis en push-subscriptie-ID's verwerken.",
@@ -1054,7 +1054,7 @@ window.TILT_I18N = {
       "legal.contact": "Contacto",
 
       "privacy.title": "Política de privacidade",
-      "privacy.last": "Última atualização: 14 de fevereiro de 2026",
+      "privacy.last": "Última atualização: 19 de julho de 2026",
       "privacy.intro": "Esta política explica como a TILT trata informação na app e neste site.",
       "privacy.s1t": "O que recolhemos",
       "privacy.s1d": "A TILT pode processar identificadores do dispositivo, ligações emparelhadas, definições de locais, histórico de geocerca e identificadores de notificações.",

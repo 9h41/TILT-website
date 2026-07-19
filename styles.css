@@ -114,6 +114,62 @@ a {
   font-weight: 600;
 }
 
+.consent-banner {
+  position: fixed;
+  z-index: 100;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(360px, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid rgba(6, 38, 85, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 250, 240, 0.98);
+  box-shadow: 0 14px 35px rgba(5, 42, 68, 0.2);
+  color: var(--ink);
+}
+
+.consent-banner strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.consent-banner p {
+  margin: 0.35rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.consent-banner a {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.consent-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.consent-button {
+  border: 0;
+  border-radius: 9px;
+  padding: 0.55rem 0.8rem;
+  background: var(--teal);
+  color: #fff;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.consent-button--secondary {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
 .hero {
   padding: 2rem 0 4rem;
 }

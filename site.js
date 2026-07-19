@@ -85,7 +85,85 @@
     });
   }
 
+  function loadAnalytics() {
+    if (document.querySelector('script[data-tilt-analytics]')) return;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZT14P7S77B";
+    script.dataset.tiltAnalytics = "true";
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", "G-ZT14P7S77B");
+  }
+
+  function buildConsentBanner(locale) {
+    const consent = window.localStorage.getItem("tilt.analyticsConsent");
+    if (consent === "accepted") {
+      loadAnalytics();
+      return;
+    }
+    if (consent === "declined") return;
+
+    const banner = document.createElement("aside");
+    banner.className = "consent-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-labelledby", "consent-title");
+
+    const title = document.createElement("strong");
+    title.id = "consent-title";
+    title.textContent = t(locale, "consent.title");
+
+    const message = document.createElement("p");
+    message.textContent = t(locale, "consent.body");
+
+    const privacy = document.createElement("a");
+    privacy.href = "privacy.html";
+    privacy.textContent = t(locale, "consent.privacy");
+
+    const actions = document.createElement("div");
+    actions.className = "consent-actions";
+
+    const refuse = document.createElement("button");
+    refuse.type = "button";
+    refuse.className = "consent-button consent-button--secondary";
+    refuse.textContent = t(locale, "consent.refuse");
+    refuse.addEventListener("click", () => {
+      window.localStorage.setItem("tilt.analyticsConsent", "declined");
+      banner.remove();
+    });
+
+    const accept = document.createElement("button");
+    accept.type = "button";
+    accept.className = "consent-button";
+    accept.textContent = t(locale, "consent.accept");
+    accept.addEventListener("click", () => {
+      window.localStorage.setItem("tilt.analyticsConsent", "accepted");
+      loadAnalytics();
+      banner.remove();
+    });
+
+    actions.append(refuse, accept);
+    banner.append(title, message, privacy, actions);
+    document.body.appendChild(banner);
+  }
+
+  function bindConsentSettings() {
+    document.querySelectorAll("[data-consent-settings]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.localStorage.removeItem("tilt.analyticsConsent");
+        window.location.reload();
+      });
+    });
+  }
+
   const locale = pickLocale();
   buildSwitcher(locale);
   applyLocale(locale);
+  bindConsentSettings();
+  buildConsentBanner(locale);
 })();

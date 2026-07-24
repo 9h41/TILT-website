@@ -105,6 +105,42 @@ a {
   color: var(--teal);
 }
 
+.manifest-wrap {
+  padding: clamp(2rem, 6vw, 5rem) 0 clamp(3.5rem, 8vw, 7rem);
+}
+
+.manifest-page {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.75rem, 5vw, 4rem);
+  border: 1px solid rgba(6, 38, 85, 0.14);
+  border-radius: 28px;
+  background: rgba(255, 250, 240, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.manifest-page h1 {
+  margin: 0 0 2.25rem;
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.manifest-page p {
+  margin: 0 0 1.4rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.7vw, 1.13rem);
+  line-height: 1.8;
+}
+
+.manifest-page .manifest-closing {
+  margin: 2.5rem 0 0;
+  color: var(--ink);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
 .lang {
   border: 1px solid var(--line);
   border-radius: 10px;

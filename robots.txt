@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tilt.9h41.org/sitemap.xml

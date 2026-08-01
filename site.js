@@ -6,6 +6,12 @@
     const fromQuery = params.get("lang");
     if (fromQuery && i18n.supported.includes(fromQuery)) return fromQuery;
 
+    const fromBody = document.body.dataset.staticLocale;
+    if (fromBody && i18n.supported.includes(fromBody)) return fromBody;
+
+    const fromPath = window.location.pathname.split("/").find((part) => i18n.supported.includes(part));
+    if (fromPath) return fromPath;
+
     const fromStorage = window.localStorage.getItem("tilt.lang");
     if (fromStorage && i18n.supported.includes(fromStorage)) return fromStorage;
 
@@ -17,11 +23,95 @@
     return i18n.strings[locale]?.[key] ?? i18n.strings.en[key] ?? key;
   }
 
+  function currentPagePath() {
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    const filename = i18n.supported.includes(parts[0]) ? parts[1] ?? "" : parts[0] ?? "";
+    return filename === "" || filename === "index.html" ? "/" : `/${filename}`;
+  }
+
+  function localizedUrl(locale) {
+    const pagePath = currentPagePath();
+    const localizedPath = locale === "en"
+      ? pagePath
+      : `/${locale}${pagePath === "/" ? "/" : pagePath}`;
+    return new URL(localizedPath, "https://tilt.9h41.org").toString();
+  }
+
+  function canonicalUrl(locale) {
+    return localizedUrl(locale);
+  }
+
+  function localizedPath(locale, pagePath = currentPagePath()) {
+    if (locale === "en") return pagePath;
+    return `/${locale}${pagePath === "/" ? "/" : pagePath}`;
+  }
+
+  function setMetaByName(name, value) {
+    let meta = document.querySelector(`meta[name="${name}"]`);
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", name);
+      document.head.appendChild(meta);
+    }
+    if (meta && value) meta.setAttribute("content", value);
+  }
+
+  function setMetaByProperty(property, value) {
+    let meta = document.querySelector(`meta[property="${property}"]`);
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("property", property);
+      document.head.appendChild(meta);
+    }
+    if (meta && value) meta.setAttribute("content", value);
+  }
+
+  function applySeo(locale) {
+    const titleKey = document.body.dataset.i18nTitle;
+    const descriptionKey = document.body.dataset.i18nDescription;
+    const keywordsKey = document.body.dataset.i18nKeywords;
+    const title = titleKey ? t(locale, titleKey) : document.title;
+    const description = descriptionKey ? t(locale, descriptionKey) : "";
+    const keywords = keywordsKey ? t(locale, keywordsKey) : "";
+    const url = canonicalUrl(locale);
+    const localeMap = {
+      en: "en_US",
+      de: "de_DE",
+      es: "es_ES",
+      fr: "fr_FR",
+      it: "it_IT",
+      nl: "nl_NL",
+      pt: "pt_PT"
+    };
+
+    if (title) document.title = title;
+    setMetaByName("description", description);
+    setMetaByName("keywords", keywords);
+    setMetaByName("twitter:title", title);
+    setMetaByName("twitter:description", description);
+    setMetaByProperty("og:title", title);
+    setMetaByProperty("og:description", description);
+    setMetaByProperty("og:url", url);
+    setMetaByProperty("og:locale", localeMap[locale]);
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", url);
+
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((link) => {
+      const hreflang = link.getAttribute("hreflang");
+      const href = hreflang === "x-default"
+        ? localizedUrl("en")
+        : localizedUrl(hreflang);
+      link.setAttribute("href", href);
+    });
+  }
+
   function updateLinks(locale) {
     document.querySelectorAll("a[data-localized-link]").forEach((a) => {
-      const url = new URL(a.getAttribute("href"), window.location.origin + window.location.pathname);
-      url.searchParams.set("lang", locale);
-      a.setAttribute("href", url.pathname + url.search);
+      const href = a.getAttribute("href");
+      const filename = href.split("/").pop().split("?")[0] || "index.html";
+      const pagePath = filename === "index.html" ? "/" : `/${filename}`;
+      a.setAttribute("href", localizedPath(locale, pagePath));
     });
   }
 
@@ -54,8 +144,7 @@
       };
     });
 
-    const bodyTitleKey = document.body.dataset.i18nTitle;
-    if (bodyTitleKey) document.title = t(locale, bodyTitleKey);
+    applySeo(locale);
 
     updateLinks(locale);
 
@@ -78,10 +167,8 @@
     select.value = initial;
     select.addEventListener("change", (e) => {
       const next = e.target.value;
-      const nextUrl = new URL(window.location.href);
-      nextUrl.searchParams.set("lang", next);
-      history.replaceState({}, "", nextUrl.pathname + nextUrl.search);
-      applyLocale(next);
+      window.localStorage.setItem("tilt.lang", next);
+      window.location.href = localizedPath(next);
     });
   }
 

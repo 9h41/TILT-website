@@ -46,6 +46,11 @@
     return `/${locale}${pagePath === "/" ? "/" : pagePath}`;
   }
 
+  function assetPath(path) {
+    const isNestedLocalePage = i18n.supported.includes(window.location.pathname.split("/").filter(Boolean)[0]);
+    return `${isNestedLocalePage ? "../" : ""}${path}`;
+  }
+
   function setMetaByName(name, value) {
     let meta = document.querySelector(`meta[name="${name}"]`);
     if (!meta) {
@@ -129,18 +134,18 @@
       el.setAttribute("aria-label", t(locale, el.dataset.i18nAriaLabel));
     });
     document.querySelectorAll("[data-appstore-badge]").forEach((img) => {
-      img.setAttribute("src", `assets/badges/appstore-${locale}.svg`);
+      img.setAttribute("src", assetPath(`assets/badges/appstore-${locale}.svg`));
       img.onerror = function () {
         this.onerror = null;
-        this.setAttribute("src", "assets/badges/appstore-en.svg");
+        this.setAttribute("src", assetPath("assets/badges/appstore-en.svg"));
       };
     });
     document.querySelectorAll("[data-screenshot-file]").forEach((img) => {
       const filename = img.dataset.screenshotFile;
-      img.setAttribute("src", `assets/screenshots/${locale}/${filename}`);
+      img.setAttribute("src", assetPath(`assets/screenshots/${locale}/${filename}`));
       img.onerror = function () {
         this.onerror = null;
-        this.setAttribute("src", `assets/screenshots/en/${filename}`);
+        this.setAttribute("src", assetPath(`assets/screenshots/en/${filename}`));
       };
     });
 

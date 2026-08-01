@@ -181,8 +181,34 @@ function rewriteNestedAssets(html, locale) {
     .replaceAll('src="assets/', 'src="../assets/');
 }
 
+function removeExternalFonts(html) {
+  return html
+    .replace(/\n\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">/g, "")
+    .replace(/\n\s*<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin>/g, "")
+    .replace(/\n\s*<link href="https:\/\/fonts\.googleapis\.com\/css2\?family=Manrope:[^"]+" rel="stylesheet">/g, "");
+}
+
+function rewriteIconAssets(html) {
+  return html
+    .replaceAll('content="https://tilt.9h41.org/assets/icon.png"', 'content="https://tilt.9h41.org/assets/og-image.png"')
+    .replaceAll('<link rel="icon" href="assets/icon.svg" type="image/svg+xml">', '<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">')
+    .replaceAll('<link rel="icon" href="assets/icon.png" type="image/png">', '<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">')
+    .replaceAll('<link rel="apple-touch-icon" href="assets/icon.png">', '<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">')
+    .replaceAll('src="assets/icon.svg"', 'src="assets/apple-touch-icon.png"')
+    .replaceAll('src="assets/icon.png"', 'src="assets/apple-touch-icon.png"')
+    .replaceAll('<img src="assets/apple-touch-icon.png" alt="TILT icon">', '<img src="assets/apple-touch-icon.png" alt="TILT icon" width="64" height="64" decoding="async">');
+}
+
 function rewriteStoreBadge(html, locale) {
-  return html.replace(/(<img\b[^>]*\bdata-appstore-badge\b[^>]*\bsrc=")[^"]*("[^>]*>)/, `$1assets/badges/appstore-${locale}.svg$2`);
+  return html
+    .replace(/(<img\b[^>]*\bdata-appstore-badge\b[^>]*\bsrc=")[^"]*("[^>]*>)/, `$1assets/badges/appstore-${locale}.svg$2`)
+    .replace(/(<img\b[^>]*\bdata-appstore-badge\b)([^>]*)(>)/, (match, start, attrs, end) => {
+      let tag = `${start}${attrs}${end}`;
+      tag = setAttribute(tag, "width", "260");
+      tag = setAttribute(tag, "height", "87");
+      tag = setAttribute(tag, "decoding", "async");
+      return tag;
+    });
 }
 
 function rewriteStructuredData(html, locale, page) {
@@ -205,6 +231,8 @@ function rewriteStructuredData(html, locale, page) {
 function renderPage(locale, page) {
   let html = fs.readFileSync(path.join(root, page.file), "utf8");
   html = rewriteSeo(html, locale, page);
+  html = removeExternalFonts(html);
+  html = rewriteIconAssets(html);
   html = rewriteStaticLocale(html, locale);
   html = localizeElements(html, locale);
   html = localizeAttributes(html, locale);

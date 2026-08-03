@@ -191,12 +191,12 @@ function removeExternalFonts(html) {
 function rewriteIconAssets(html) {
   return html
     .replaceAll('content="https://tilt.9h41.org/assets/icon.png"', 'content="https://tilt.9h41.org/assets/og-image.png"')
-    .replaceAll('<link rel="icon" href="assets/icon.svg" type="image/svg+xml">', '<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">')
-    .replaceAll('<link rel="icon" href="assets/icon.png" type="image/png">', '<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">')
+    .replaceAll('<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">', '<link rel="icon" href="assets/icon.svg" type="image/svg+xml">')
+    .replaceAll('<link rel="icon" href="assets/icon.png" type="image/png">', '<link rel="icon" href="assets/icon.svg" type="image/svg+xml">')
     .replaceAll('<link rel="apple-touch-icon" href="assets/icon.png">', '<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">')
-    .replaceAll('src="assets/icon.svg"', 'src="assets/apple-touch-icon.png"')
-    .replaceAll('src="assets/icon.png"', 'src="assets/apple-touch-icon.png"')
-    .replaceAll('<img src="assets/apple-touch-icon.png" alt="TILT icon">', '<img src="assets/apple-touch-icon.png" alt="TILT icon" width="64" height="64" decoding="async">');
+    .replaceAll('src="assets/icon.svg"', 'src="assets/logo.webp"')
+    .replaceAll('src="assets/icon.png"', 'src="assets/logo.webp"')
+    .replaceAll('src="assets/apple-touch-icon.png"', 'src="assets/logo.webp"');
 }
 
 function rewriteStoreBadge(html, locale) {

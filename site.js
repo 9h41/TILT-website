@@ -231,14 +231,16 @@
 
     const banner = document.createElement("aside");
     banner.className = "consent-banner";
-    banner.setAttribute("role", "dialog");
+    banner.setAttribute("role", "region");
     banner.setAttribute("aria-labelledby", "consent-title");
+    banner.setAttribute("aria-describedby", "consent-message");
 
     const title = document.createElement("strong");
     title.id = "consent-title";
     title.textContent = t(locale, "consent.title");
 
     const message = document.createElement("p");
+    message.id = "consent-message";
     message.textContent = t(locale, "consent.body");
 
     const privacy = document.createElement("a");

@@ -12,7 +12,7 @@
       || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     const platform = ["android", "ios"].includes(forcedDevice)
       ? forcedDevice
-      : isAndroid ? "android" : isIOS ? "ios" : "";
+      : isAndroid ? "android" : isIOS ? "ios" : window.matchMedia("(max-width: 767px)").matches ? "android" : "";
 
     hero.classList.toggle("hero-device--android", platform === "android");
     hero.classList.toggle("hero-device--ios", platform === "ios");

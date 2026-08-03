@@ -156,11 +156,15 @@ a {
 }
 
 .lang-menu summary {
+  display: flex;
+  align-items: center;
+  min-height: 2.25rem;
+  box-sizing: border-box;
   cursor: pointer;
   list-style: none;
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 0.45rem 0.55rem;
+  padding: 0.45rem 0.55rem 0.45rem 0.7rem;
   background: #fff;
   color: var(--ink);
   font-weight: 600;
@@ -171,12 +175,18 @@ a {
 }
 
 .lang-menu summary::after {
-  content: "⌄";
-  margin-left: 0.4rem;
+  content: "";
+  width: 0.38rem;
+  height: 0.38rem;
+  margin: -0.18rem 0 0 0.55rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
 }
 
 .lang-menu[open] summary::after {
-  content: "⌃";
+  margin-top: 0.18rem;
+  transform: rotate(225deg);
 }
 
 .lang-menu__options {
@@ -1463,6 +1473,14 @@ body:has(.home-page-shell) .nav-download:hover {
     left: auto;
     width: min(250px, 66vw);
     transform: translateX(50%) rotate(4deg);
+  }
+
+  .hero-device .hero-phone--ios {
+    display: none;
+  }
+
+  .hero-device.hero-device--ios .hero-phone--ios {
+    display: block;
   }
 
   .hero-device.hero-device--ios .hero-phone--android,

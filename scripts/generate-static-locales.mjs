@@ -219,7 +219,10 @@ function rewriteConsentTemplate(html, locale, page) {
 }
 
 function removeRuntimeI18n(html) {
-  return html.replace(/\n\s*<script src="i18n\.js" defer><\/script>/, "");
+  return html
+    .replace(/\n\s*<script src="i18n\.js" defer><\/script>/, "")
+    .replace(/\n\s*<script data-device-platform>[\s\S]*?<\/script>/, "")
+    .replaceAll('<script src="site.js" defer></script>', '<script src="site.js"></script>');
 }
 
 function rewriteNestedAssets(html, locale) {
@@ -242,8 +245,9 @@ function removeExternalFonts(html) {
 function rewriteIconAssets(html) {
   return html
     .replaceAll('content="https://tilt.9h41.org/assets/icon.png"', 'content="https://tilt.9h41.org/assets/og-image.png"')
-    .replaceAll('<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">', '<link rel="icon" href="assets/icon.svg" type="image/svg+xml">')
-    .replaceAll('<link rel="icon" href="assets/icon.png" type="image/png">', '<link rel="icon" href="assets/icon.svg" type="image/svg+xml">')
+    .replaceAll('<link rel="icon" href="assets/apple-touch-icon.png" type="image/png">', '<link rel="icon" href="assets/favicon.png" type="image/png">')
+    .replaceAll('<link rel="icon" href="assets/icon.png" type="image/png">', '<link rel="icon" href="assets/favicon.png" type="image/png">')
+    .replaceAll('<link rel="icon" href="assets/icon.svg" type="image/svg+xml">', '<link rel="icon" href="assets/favicon.png" type="image/png">')
     .replaceAll('<link rel="apple-touch-icon" href="assets/icon.png">', '<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">')
     .replaceAll('src="assets/icon.svg"', 'src="assets/logo.webp"')
     .replaceAll('src="assets/icon.png"', 'src="assets/logo.webp"')

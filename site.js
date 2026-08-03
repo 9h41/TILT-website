@@ -51,6 +51,34 @@
     return `${isNestedLocalePage ? "../" : ""}${path}`;
   }
 
+  function applyDevicePlatform() {
+    const hero = document.querySelector(".hero-device");
+    if (!hero) return;
+
+    const forcedDevice = params.get("device")?.toLowerCase();
+    const userAgent = navigator.userAgent || "";
+    const isAndroid = /Android/i.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod/i.test(userAgent)
+      || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const platform = ["android", "ios"].includes(forcedDevice)
+      ? forcedDevice
+      : isAndroid ? "android" : isIOS ? "ios" : "";
+
+    hero.classList.toggle("hero-device--android", platform === "android");
+    hero.classList.toggle("hero-device--ios", platform === "ios");
+  }
+
+  function applyHeroScreenshots(locale) {
+    document.querySelectorAll("[data-hero-screenshot]").forEach((img) => {
+      const platform = img.dataset.heroScreenshot;
+      img.setAttribute("src", assetPath(`assets/hero/${platform}/${locale}.png`));
+      img.onerror = function () {
+        this.onerror = null;
+        this.setAttribute("src", assetPath(`assets/hero/${platform}/en.png`));
+      };
+    });
+  }
+
   function setMetaByName(name, value) {
     let meta = document.querySelector(`meta[name="${name}"]`);
     if (!meta) {
@@ -148,6 +176,7 @@
         this.setAttribute("src", assetPath(`assets/screenshots/en/${filename}`));
       };
     });
+    applyHeroScreenshots(locale);
 
     applySeo(locale);
 
@@ -254,6 +283,7 @@
   }
 
   const locale = pickLocale();
+  applyDevicePlatform();
   buildSwitcher(locale);
   applyLocale(locale);
   bindConsentSettings();

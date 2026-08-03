@@ -260,38 +260,6 @@ a {
   z-index: 4;
 }
 
-.phone-frame {
-  position: relative;
-  width: min(300px, 64vw);
-  aspect-ratio: 9 / 18.5;
-  padding: 0.65rem;
-  border: 9px solid #121212;
-  border-radius: 2.4rem;
-  background: #111;
-  box-shadow: 0 30px 55px rgba(5, 38, 62, 0.34);
-}
-
-.phone-notch {
-  position: absolute;
-  top: 0.55rem;
-  left: 50%;
-  z-index: 3;
-  width: 36%;
-  height: 1.2rem;
-  transform: translateX(-50%);
-  border-radius: 0 0 1rem 1rem;
-  background: #0a0a0a;
-}
-
-.phone-screen {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 1.7rem;
-  background:
-    linear-gradient(180deg, #fff8e8, #e8f7f4 62%, #0c5870);
-}
-
 .feature-icon {
   width: 116px;
   aspect-ratio: 1;
@@ -1127,141 +1095,73 @@ body:has(.home-page-shell) .nav-download:hover {
   font-weight: 800;
 }
 
-.hero-device {
+.hero-device-column {
   display: grid;
   justify-items: center;
   align-content: center;
+  gap: 1.25rem;
+}
+
+.hero-device {
+  position: relative;
+  width: min(100%, 520px);
+  height: 650px;
   align-self: center;
-  gap: 1.45rem;
+  --ios-device-width: min(276px, 47%);
+  --device-gap: calc(var(--ios-device-width) * 0.15);
 }
 
 .hero-device .hero-phone {
   display: block;
   position: relative;
-  z-index: 3;
+  width: min(276px, 27vw);
+  margin: 0;
+}
+
+.hero-device .hero-phone--android {
+  position: absolute;
+  z-index: 2;
+  top: 74px;
+  right: auto;
+  left: calc(var(--ios-device-width) + var(--device-gap));
+  width: min(254px, calc(100% - var(--ios-device-width) - var(--device-gap)));
   transform: rotate(4deg);
 }
 
-.hero-device .phone-frame {
-  width: min(300px, 31vw);
-  padding: 0.55rem;
-  border: 9px solid #0d0d0f;
-  border-radius: 2.55rem;
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.28), transparent 18% 78%, rgba(255, 255, 255, 0.16)),
-    #111;
-  box-shadow:
-    22px 28px 42px rgba(5, 42, 68, 0.25),
-    0 4px 0 rgba(255, 255, 255, 0.2) inset;
+.hero-device .hero-phone--ios {
+  position: absolute;
+  z-index: 3;
+  top: 4px;
+  right: auto;
+  left: 0;
+  width: var(--ios-device-width);
+  transform: rotate(4deg);
 }
 
-.hero-device .phone-screen {
+.hero-device .device-frame {
   position: relative;
-  height: 100%;
+  aspect-ratio: 1350 / 2760;
   overflow: hidden;
-  display: grid;
-  justify-items: center;
-  align-content: start;
-  padding: 1.25rem 1rem 0;
-  border-radius: 1.75rem;
-  background: linear-gradient(180deg, #fff8e8 0%, #fff3dd 56%, #d9f3ed 100%);
 }
 
-.hero-device .phone-screen img {
-  display: none;
+.hero-device .hero-phone--android .device-frame {
+  aspect-ratio: 1200 / 2520;
+}
+
+.hero-device .device-screen {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 50% 74%;
-  transform: scale(2.05);
-  filter: saturate(0.96) contrast(1.02);
+  object-fit: contain;
+  border-radius: clamp(1.45rem, 2.5vw, 2.05rem);
 }
 
-.status-row {
-  justify-self: stretch;
-  color: #101820;
-  font-size: 0.72rem;
-  font-weight: 800;
+.hero-device .hero-phone--android .device-screen {
+  border-radius: 0;
 }
 
-.avatar {
-  width: 82px;
-  height: 82px;
-  margin-top: 2.4rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 36%, #f6c499 0 18%, transparent 19%),
-    radial-gradient(circle at 50% 48%, #75442d 0 28%, transparent 29%),
-    linear-gradient(135deg, #e7f8d9, #5fb567);
-  box-shadow: 0 6px 18px rgba(5, 42, 68, 0.15);
-}
-
-.checkmark {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  margin: -30px 0 1.2rem 72px;
-  color: #fff;
-  font-size: 1.7rem;
-  font-weight: 900;
-  border-radius: 50%;
-  background: #2cae9c;
-}
-
-.hero-device .phone-screen strong,
-.hero-device .phone-screen p {
-  max-width: 210px;
-  margin: 0;
-  color: var(--ink);
-  text-align: center;
-  font-size: 1.35rem;
-  line-height: 1.22;
-}
-
-.hero-device .phone-screen strong {
-  font-size: 1.08rem;
-}
-
-.hero-device .phone-screen span {
-  margin-top: 1rem;
-  padding: 0.45rem 0.8rem;
-  color: #fff;
-  font-size: 0.86rem;
-  font-weight: 800;
-  border-radius: 9px;
-  background: #2ba88f;
-}
-
-.phone-mountains {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 32%;
-  background:
-    linear-gradient(135deg, transparent 0 18%, #eb7d1b 18% 21%, transparent 21% 64%, #eb7d1b 64% 67%, transparent 67%),
-    linear-gradient(135deg, #94d3d6 0%, #17758a 52%, #073852 100%);
-  clip-path: polygon(0 44%, 10% 25%, 22% 55%, 35% 22%, 49% 60%, 63% 30%, 78% 58%, 92% 26%, 100% 40%, 100% 100%, 0 100%);
-}
-
-.phone-pin {
-  position: absolute;
-  left: 50%;
-  bottom: 21%;
-  width: 28px;
-  height: 28px;
-  transform: translateX(-50%) rotate(-45deg);
-  border-radius: 50% 50% 50% 0;
-  background: var(--ink);
-}
-
-.phone-pin::after {
-  content: "";
-  position: absolute;
-  inset: 32%;
-  border-radius: 50%;
-  background: #fff8e8;
+.hero-device .hero-phone--ios .device-screen {
+  border-radius: 0;
 }
 
 .hero-badges {
@@ -1433,8 +1333,7 @@ body:has(.home-page-shell) .nav-download:hover {
     min-width: 0;
     width: 100%;
     justify-items: center;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
   }
 
   .home-hero .hero-copy {
@@ -1476,15 +1375,11 @@ body:has(.home-page-shell) .nav-download:hover {
     margin-left: auto;
   }
 
-  .hero-device .phone-frame {
-    width: min(265px, 70vw);
-  }
-
   .hero-device {
     width: 100%;
     max-width: calc(100vw - 2rem);
-    overflow-x: hidden;
-    overflow-y: visible;
+    height: 500px;
+    overflow: visible;
     padding-top: 0.75rem;
   }
 
@@ -1496,6 +1391,36 @@ body:has(.home-page-shell) .nav-download:hover {
 
   .home-pillars article {
     border-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-device {
+    height: min(528px, 139vw);
+    max-width: min(100%, 330px);
+    padding-top: 0;
+  }
+
+  .hero-device .hero-phone--ios,
+  .hero-device .hero-phone--android {
+    top: 0;
+    right: 50%;
+    left: auto;
+    width: min(250px, 66vw);
+    transform: translateX(50%) rotate(4deg);
+  }
+
+  .hero-device.hero-device--ios .hero-phone--android,
+  .hero-device.hero-device--android .hero-phone--ios {
+    display: none;
+  }
+
+  .hero-device.hero-device--android .hero-phone--android {
+    transform: translateX(50%) rotate(4deg);
+  }
+
+  .hero-device.hero-device--android {
+    height: min(543px, 144vw);
   }
 }
 

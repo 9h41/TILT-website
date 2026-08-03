@@ -71,10 +71,10 @@
   function applyHeroScreenshots(locale) {
     document.querySelectorAll("[data-hero-screenshot]").forEach((img) => {
       const platform = img.dataset.heroScreenshot;
-      img.setAttribute("src", assetPath(`assets/hero/${platform}/${locale}.png`));
+      img.setAttribute("src", assetPath(`assets/hero/${platform}/${locale}.webp`));
       img.onerror = function () {
         this.onerror = null;
-        this.setAttribute("src", assetPath(`assets/hero/${platform}/en.png`));
+        this.setAttribute("src", assetPath(`assets/hero/${platform}/en.webp`));
       };
     });
   }

@@ -254,6 +254,17 @@ function rewriteIconAssets(html) {
     .replaceAll('src="assets/apple-touch-icon.png"', 'src="assets/logo.webp"');
 }
 
+function rewriteFaviconLinks(html) {
+  const links = [
+    '  <link rel="icon" href="/favicon.ico" sizes="any">',
+    '  <link rel="icon" href="assets/favicon.png" type="image/png">'
+  ].join("\n");
+  return html.replace(
+    /\s*<link rel="icon" href="\/favicon\.ico" sizes="any">\s*<link rel="icon" href="assets\/favicon\.png" type="image\/png">|\s*<link rel="icon" href="assets\/favicon\.png" type="image\/png">/,
+    `\n${links}`
+  );
+}
+
 function rewriteStoreBadge(html, locale) {
   return html
     .replace(/(<img\b[^>]*\bdata-appstore-badge\b[^>]*\bsrc=")[^"]*("[^>]*>)/, `$1assets/badges/appstore-${locale}.svg$2`)
@@ -288,6 +299,7 @@ function renderPage(locale, page) {
   html = rewriteSeo(html, locale, page);
   html = removeExternalFonts(html);
   html = rewriteIconAssets(html);
+  html = rewriteFaviconLinks(html);
   html = rewriteStaticLocale(html, locale);
   html = localizeElements(html, locale);
   html = localizeAttributes(html, locale);

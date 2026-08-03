@@ -171,6 +171,57 @@ function rewriteLocalizedLinks(html, locale) {
   });
 }
 
+function rewriteLanguageSwitcher(html, locale, page) {
+  const options = i18n.supported.map((code) => {
+    const current = code === locale ? ' aria-current="page"' : "";
+    return `      <a href="${pagePath(code, page.file)}" lang="${code}"${current}>${htmlEscape(i18n.localeNames[code])}</a>`;
+  }).join("\n");
+  const menu = [
+    '        <details class="lang-menu">',
+    `          <summary>${htmlEscape(i18n.localeNames[locale])}</summary>`,
+    '          <nav class="lang-menu__options" aria-label="Languages">',
+    options,
+    "          </nav>",
+    "        </details>"
+  ].join("\n");
+
+  return html.replace(
+    /<select\b[^>]*\bid="lang-switcher"[^>]*>[\s\S]*?<\/select>|<details\b[^>]*\bclass="lang-menu"[^>]*>[\s\S]*?<\/details>/,
+    menu
+  );
+}
+
+function rewriteHeroScreenshots(html, locale) {
+  return html.replace(/<img\b[^>]*\bdata-hero-screenshot="([^"]+)"[^>]*>/g, (tag, platform) =>
+    setAttribute(tag, "src", `assets/hero/${platform}/${locale}.webp`)
+  );
+}
+
+function rewriteConsentTemplate(html, locale, page) {
+  const template = [
+    '  <template id="consent-template">',
+    '    <aside class="consent-banner" role="region" aria-labelledby="consent-title" aria-describedby="consent-message">',
+    `      <strong id="consent-title">${htmlEscape(t(locale, "consent.title"))}</strong>`,
+    `      <p id="consent-message">${htmlEscape(t(locale, "consent.body"))}</p>`,
+    `      <a href="${pagePath(locale, "privacy.html")}">${htmlEscape(t(locale, "consent.privacy"))}</a>`,
+    '      <div class="consent-actions">',
+    `        <button type="button" class="consent-button consent-button--secondary" data-consent-action="decline">${htmlEscape(t(locale, "consent.refuse"))}</button>`,
+    `        <button type="button" class="consent-button" data-consent-action="accept">${htmlEscape(t(locale, "consent.accept"))}</button>`,
+    "      </div>",
+    "    </aside>",
+    "  </template>"
+  ].join("\n");
+
+  if (html.includes('id="consent-template"')) {
+    return html.replace(/\s*<template id="consent-template">[\s\S]*?<\/template>/, `\n${template}`);
+  }
+  return html.replace(/\n\s*<script src="i18n\.js" defer><\/script>/, `\n${template}`);
+}
+
+function removeRuntimeI18n(html) {
+  return html.replace(/\n\s*<script src="i18n\.js" defer><\/script>/, "");
+}
+
 function rewriteNestedAssets(html, locale) {
   if (locale === "en") return html;
   return html
@@ -237,7 +288,11 @@ function renderPage(locale, page) {
   html = localizeElements(html, locale);
   html = localizeAttributes(html, locale);
   html = rewriteLocalizedLinks(html, locale);
+  html = rewriteLanguageSwitcher(html, locale, page);
+  html = rewriteHeroScreenshots(html, locale);
   html = rewriteStoreBadge(html, locale);
+  html = rewriteConsentTemplate(html, locale, page);
+  html = removeRuntimeI18n(html);
   html = rewriteStructuredData(html, locale, page);
   html = rewriteNestedAssets(html, locale);
   return html;

@@ -150,6 +150,61 @@ a {
   font-weight: 600;
 }
 
+.lang-menu {
+  position: relative;
+  z-index: 20;
+}
+
+.lang-menu summary {
+  cursor: pointer;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.45rem 0.55rem;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.lang-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.lang-menu summary::after {
+  content: "⌄";
+  margin-left: 0.4rem;
+}
+
+.lang-menu[open] summary::after {
+  content: "⌃";
+}
+
+.lang-menu__options {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  display: grid;
+  min-width: 8.5rem;
+  padding: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(5, 42, 68, 0.16);
+}
+
+.lang-menu__options a {
+  padding: 0.45rem 0.55rem;
+  border-radius: 7px;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lang-menu__options a:hover,
+.lang-menu__options a[aria-current="page"] {
+  background: #e8faf6;
+}
+
 .consent-banner {
   position: fixed;
   z-index: 100;

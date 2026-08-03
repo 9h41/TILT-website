@@ -45,7 +45,18 @@
         <a class="nav-link" href="/it/manifest.html" data-localized-link data-i18n="nav.manifest">Manifesto</a>
         <a class="nav-link active" href="/it/privacy.html" data-localized-link data-i18n="nav.privacy">Privacy</a>
         <a class="nav-link" href="/it/terms.html" data-localized-link data-i18n="nav.terms">Termini</a>
-        <select id="lang-switcher" class="lang" aria-label="Language"></select>
+                        <details class="lang-menu">
+          <summary>Italiano</summary>
+          <nav class="lang-menu__options" aria-label="Languages">
+      <a href="/privacy.html" lang="en">English</a>
+      <a href="/de/privacy.html" lang="de">Deutsch</a>
+      <a href="/es/privacy.html" lang="es">Español</a>
+      <a href="/fr/privacy.html" lang="fr">Français</a>
+      <a href="/it/privacy.html" lang="it" aria-current="page">Italiano</a>
+      <a href="/nl/privacy.html" lang="nl">Nederlands</a>
+      <a href="/pt/privacy.html" lang="pt">Português</a>
+          </nav>
+        </details>
       </div>
     </div>
   </header>
@@ -82,8 +93,17 @@
       <div class="meta" data-i18n="footer.copy">© 2026 TILT</div>
     </div>
   </footer>
-
-  <script src="../i18n.js" defer></script>
+  <template id="consent-template">
+    <aside class="consent-banner" role="region" aria-labelledby="consent-title" aria-describedby="consent-message">
+      <strong id="consent-title">Cookie per la misurazione dell'audience</strong>
+      <p id="consent-message">Possiamo usare Google Analytics per capire come viene utilizzato il sito?</p>
+      <a href="/it/privacy.html">Informativa sulla privacy</a>
+      <div class="consent-actions">
+        <button type="button" class="consent-button consent-button--secondary" data-consent-action="decline">Rifiuta</button>
+        <button type="button" class="consent-button" data-consent-action="accept">Accetta</button>
+      </div>
+    </aside>
+  </template>
   <script src="../site.js" defer></script>
 </body>
 </html>
